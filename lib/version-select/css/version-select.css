@@ -49,6 +49,7 @@ body {
 
 #version-container {
     background: #111111;
+    padding-bottom: 50px;
 }
 
 #open-source-link-div {
