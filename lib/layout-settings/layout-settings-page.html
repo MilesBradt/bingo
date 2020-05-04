@@ -29,69 +29,16 @@
             <input id="popoutHeight" class="num-input" type="number" min=320 max=1500 maxlength=4
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
         </label>
-    </form>
 
-    <div id="reset-button" class="button">Reset all to default</div>
+        
+    </form>
+    <br />
+    <div class="button" onClick="goBack()">Save & Go Back</div>
+    <div id="reset-button" class="button">Reset All to Default</div>
 
 </body>
 
-
-<script src="./default-layout-settings.js" type="text/javascript"></script>
-<script>
-
-    const storageItem = localStorage.getItem('layout-settings');
-    const storageData = storageItem ? JSON.parse(storageItem) : defaultLayoutSettings;
-
-    function checkNumConstraints(obj) {
-        if (obj.min && parseInt(obj.value) < parseInt(obj.min)) {
-            obj.value = obj.min
-        }
-        if (obj.max && parseInt(obj.value) > parseInt(obj.max)) {
-            obj.value = obj.max
-        }
-    }
-
-    function resetAllValues() {
-        for (setting in defaultLayoutSettings) {
-            const settingStr = setting
-            const settingObject = document.getElementById(settingStr);
-
-            storageData[settingStr] = defaultLayoutSettings[settingStr];
-            localStorage.setItem('layout-settings', JSON.stringify(storageData));
-            settingObject.value = storageData[settingStr]
-        }
-    }
-
-    function addSettingEventListeners() {
-        for (setting in defaultLayoutSettings) {
-            const settingStr = setting
-            const settingObject = document.getElementById(settingStr);
-
-            settingObject.addEventListener('change', () => {
-
-                if (settingObject.type === 'number') {
-                    checkNumConstraints(settingObject)
-                }
-
-
-                storageData[settingStr] = settingObject.value;
-                localStorage.setItem('layout-settings', JSON.stringify(storageData));
-            });
-            settingObject.value = storageData[settingStr]
-        }
-    }
-
-    addSettingEventListeners();
-
-    const resetButton = document.getElementById('reset-button')
-    resetButton.addEventListener('click', () => {
-        resetAllValues()
-    })
-
-
-
-</script>
-
-
+<script src="./javascript/default-layout-settings.js" type="text/javascript"></script>
+<script src="./javascript/layout.js" type="text/javascript"></script>
 
 </html>
