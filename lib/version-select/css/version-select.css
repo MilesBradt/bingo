@@ -38,6 +38,33 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
+body {
+    background: #111111;
+    color: #bec7d2;
+}
+
+#version-container {
+    background: #111111;
+}
+
+#open-source-link-div {
+    position: absolute; 
+    bottom: 0;
+}
+
+#discord-logo {
+    width: 300px;
+    transition: all .2s ease-in-out;
+}
+
+#discord-logo:hover {
+    transform: scale(1.05);
+}
+
 .button {
     background-color: #424242;
     background-image: linear-gradient(to bottom, #424242, #303030);
